@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.0'
+        DOCKER_HOST = 'tcp://localhost:2375'
     }
     parameters {
         string(name: 'NEW_VERSION', defaultValue: '1.3.0', description: 'The new version to build and deploy')
