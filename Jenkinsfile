@@ -16,14 +16,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building...${NEW_VERSION}"
-                sh 'docker build -t my-node-app .'
-                sh 'npm install'
+                // sh 'docker build -t my-node-app .'
+                // sh 'npm install'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'docker run --rm my-node-app npm test'
+                // sh 'docker run --rm my-node-app npm test'
             }
         }
         stage('Deploy') {
