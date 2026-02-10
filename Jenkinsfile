@@ -1,8 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     environment {
         NEW_VERSION = '1.3.0'
-        DOCKER_HOST = 'tcp://127.0.0.1:2375'
     }
     parameters {
         string(name: 'NEW_VERSION', defaultValue: '1.3.0', description: 'The new version to build and deploy')
