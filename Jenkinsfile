@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                // sh 'npm install'
                 echo "Building...${NEW_VERSION}"
                 echo "Build stage completed"
             }

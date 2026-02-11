@@ -13,5 +13,10 @@ WORKDIR /usr/app
 # Install app dependencies
 RUN npm install
 
-# Start the application
-CMD ["node", "server.js"]
+# 4. Copy the rest of your application code
+COPY . .
+
+EXPOSE 3000
+
+# 6. Start the "galaxy" script automatically
+CMD ["npm", "run", "galaxy"]

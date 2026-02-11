@@ -4,7 +4,7 @@
     "scripts": {
         "build": "echo 'No compilation step required for Express'",
         "test": "echo 'No tests defined yet' && exit 0",
-        "start": "node index.js"
+        "galaxy": "node src/server.js"
     },
     "dependencies": {
         "express": "4.18.2"
