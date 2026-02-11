@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'NEW_VERSION', defaultValue: '1.3.0', description: 'The new version to build and deploy')
+        string(name: 'AGE', defaultValue: '11', description: 'The age of the user')
+    }
     stages {
         stage('Docker Build') {
             steps {
