@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req,res)=>{
-     res.send("Hello from Galaxy 2222!");      
+     res.send("Hello from Galaxy v1.0.2!");      
  });
 
 app.listen(3000, function () {
