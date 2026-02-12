@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const currentTime = new Date();
 
 app.get('/', (req,res)=>{
-     res.send("Hello from Galaxy!"); 
+     res.send(`Hello from Galaxy! ${currentTime}}`); 
  });
 
 app.listen(3000, function () {
