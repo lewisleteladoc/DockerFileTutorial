@@ -1,14 +1,29 @@
-stage('Docker Deploy') {
-    steps {
-        // Stop and remove the old container so the new one can use the name and port
-        sh "docker rm -f my-running-galaxy-app || true"
-        
-        // Run the new container
-        sh "docker run -d --name my-running-galaxy-app -p 3000:3000 galaxy-app:latest"
-        
-        echo "App is running on port 3000. Point your local Nginx to http://127.0.0.1:3000"
+pipeline {
+    agent any
+
+    stages {
+        stage('Docker Build') {
+            steps {
+                // This builds your image
+                sh "docker build -t galaxy-app:latest ."
+            }
+        }
+
+        stage('Docker Deploy') {
+            steps {
+                // 1. Remove the old container if it exists
+                sh "docker rm -f my-running-galaxy-app || true"
+                
+                // 2. Run the new container on port 3000
+                // We use galaxy-app:latest which was built in the previous stage
+                sh "docker run -d --name my-running-galaxy-app -p 3000:3000 galaxy-app:latest"
+                
+                echo "Success! Your app is running on port 3000."
+            }
+        }
     }
 }
+
 
 // pipeline {
 //     agent any
